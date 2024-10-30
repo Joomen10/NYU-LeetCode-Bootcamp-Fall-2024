@@ -1,1 +1,38 @@
 
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+        # stack = []
+
+        # mapping = { ')':'(', '}':'{', ']':'['}
+
+        # for p in s:
+
+        #     if p in mapping:
+
+        #         if stack:
+        #             openp = stack.pop()
+        #         else:
+        #             openp = '#'
+
+        #         if mapping[p] != openp:
+        #             return False
+
+        #     else:
+        #         stack.append(p)
+
+        # return not stack
+
+        bracket_map = {')':'(','}':'{',']':'['}
+        stack = []
+        for char in s:
+            if char in bracket_map:
+                top_element = stack.pop() if stack else "#"
+                if bracket_map[char] != top_element:
+                    return False
+            else:
+                stack.append(char)
+        return not stack
+
+
+        
